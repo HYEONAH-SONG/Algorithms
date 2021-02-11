@@ -44,4 +44,4 @@ for i in range(len(blood)):
         cnt4 = cnt4 + 1
 
 print("{\'A\': " + str(cnt1) +", \'O\': " + str(cnt4)+ ", \'B\': "+ str(cnt2)+ ", \'AB\': " +str(cnt3)+ "}")
->>>>>>> 1c8508b (commit3)
+
