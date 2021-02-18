@@ -1,1 +1,14 @@
-#가위, 바위, 보 규칙이 정의된 함수를 이용해 승패를 결정하는 코드를 작성하십시오.
+# 소수인지를 판단하는 프로그램
+
+def prime(num) :
+    for div in range(2,num) :
+        if num % div == 0:
+            print("소수가 아닙니다.")
+            break
+        elif div == num -1:
+            print("소수입니다.")
+        else:
+            continue
+
+number = int(input())
+prime(number)
