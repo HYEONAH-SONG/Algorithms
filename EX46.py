@@ -1,0 +1,5 @@
+str = "ADCBBBBCABBCBDACBDCAACDDDCAABABDBCBCBDBDBDDABBAAAAAAADADBDBCBDABADCADC"
+
+data = {'A':4,'B':3,'C':2,'D':1}
+a = map(int, str.split())
+print(a)
