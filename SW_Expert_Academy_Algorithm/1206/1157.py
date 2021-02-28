@@ -1,24 +1,12 @@
 import sys
 sys.stdin = open("input.txt")
 
-word = (input()).upper()  # 입력받은 단어를 대문자로 변환
+for j in range(10) : #테스트케이스 10번
+    cnt = 0 # 조망권 건물 갯수
+    length = int(input()) #전체 전물의 갯수
+    arr = list(map(int, input().split())) # 각 건물의 최대 층수
+    for i in range(2,length-2): # 왼쪽 오른쪽 2칸 이내에서 해당 건물의 최대 층수가 가장 큰 경우에는 cnt를 더해준다
+        if arr[i]-arr[i+1] >0 and arr[i]-arr[i-1]>0 and arr[i]-arr[i+2] >0 and arr[i]-arr[i-2]>0:
+             cnt += min(arr[i]-arr[i+1],arr[i]-arr[i-1],arr[i]-arr[i+2],arr[i]-arr[i-2])
 
-dict1 = dict() # 가장 많이 사용된 알파벳 알아내기 위한 딕셔너리 정의
-
-for i in word :
-   if i in dict1 :
-        dict1[i] +=1
-   else:
-        dict1[i] =1
-
-m = max(dict1.values()) #딕셔너리 값 중에서 최대값을 정의
-cnt =0 # 최댓값이 나오는 횟수
-for key, value in dict1.items():
-    if value == m :
-        cnt += 1
-        j = key
-if cnt > 1: # 최대값의 횟수가 1보다 큰 경우 ? 출력
-    print("?")
-else :
-    print(j)
-
+    print("#{} {}".format(j+1,cnt))
