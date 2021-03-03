@@ -3,9 +3,22 @@
 import sys
 sys.stdin = open("input.txt")
 
-for _ in range(10):
+for j in range(10):
     num=int(input())
     large = []
+    maximum = []
     for i in range(100):
         small=input()
-        small = list(map(int,small.split()))
+        n_small = list(map(int,small.split()))
+        large.append(n_small)
+    #print(large)
+    for i in range(100):
+        sum=0
+        sum2=0
+        sum += large[i][i]
+        maximum.append(sum)
+        sum2 += large[i][101-i]
+    print("대각선: " + sum)
+    # for i in range(100):
+    #     sum = 0
+    #     sum +=large[i]
