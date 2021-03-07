@@ -4,6 +4,7 @@
 프로그램을 작성하십시오.
 '''
 
+#EX50
 
 s_list = list (filter(lambda x: x%2 ==0, range(1, 11)))
 #print(s_list)
