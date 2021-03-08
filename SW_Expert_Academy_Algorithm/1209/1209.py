@@ -3,31 +3,35 @@
 import sys
 sys.stdin = open("input.txt")
 
-for j in range(10):
-    num=int(input())
-    sum1 = 0
-    sum2 = 0
-    sum3 =0
-    sum4 = 0
-    large = [] #2차원 행렬
-    maximum = [] # 대각선, 가로, 세로의 각 합에 대한 리스트
-    for i in range(100):
-        small=input()
-        n_small = list(map(int,small.split()))
-        large.append(n_small)
+for _ in range(10):
+    num = int(input()) # test case number
+    total = [] # 대각선, 가로, 세로의 합을 저장하는 리스트
+    array = [] # 전체 행렬을 저장하는 리스트
 
-    for i in range(100):
-        sum1 += large[i][i]
-        sum2 += large[i][99-i]
-        for j in range(100):
-            sum3+=large[0][j]
+    for j in range(100): # 행
+        row = list(map(int, input().split())) # 각 row에 들어가는 list
+        array.append(row) # 각 row를 추가하기
 
-            sum4+=large[j][0]
-        maximum.append(sum3)
-        maximum.append(sum4)
-    maximum.append(sum1)
-    maximum.append(sum2)
+# 헹렬만들기 완료
+    diagonal_sum, diagonal2_sum = 0, 0
+    for j in range(100): # 행
+        row_sum, col_sum = 0, 0  # init
+        for i in range(100): # 열
+            row_sum += array[j][i]
+            col_sum += array[i][j]
+            if j == i:
+                diagonal_sum += array[j][i]
+            elif j == 99 - i:
+                 diagonal2_sum += array[j][i]
 
-    print(maximum)
+        if not total or total[-1]<= row_sum:
+            total.append(row_sum)
+        if not total or total[-1] <= col_sum:
+            total.append(col_sum)
+    # print(num, total)
+    if not total or total[-1] <= diagonal_sum:
+        total.append(diagonal_sum)
+    if not total or total[-1] <= diagonal2_sum:
+        total.append(diagonal2_sum)
 
-
+    print("#{} {}".format(num,total[-1]))
