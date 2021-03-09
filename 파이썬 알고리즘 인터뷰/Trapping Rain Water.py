@@ -6,16 +6,21 @@ height = [0,1,0,2,1,0,1,3,2,1,2,1]
 def findRain(heght_list):
     stack = [] # 높이의 변화 체크
     water =0  # 쌓일 수 있는 물
-    for i in range(1,len(heght_list)-1):
-        if stack and heght_list[i] > stack[-1]:
-            stack.pop()
+    for i in range(len(heght_list)-1):
+        if stack and heght_list[i] > stack[-1] :
+            top = stack.pop()
             stack.append(heght_list[i])
         elif not stack :
             stack.append(heght_list[i])
-        elif stack and heght_list[i] < stack[-1]:
-            water += stack[-1]-heght_list[i]
+        elif stack and heght_list[i] < stack[-1] :
+            water += min(stack[-1]-heght_list[i],heght_list[i])
         else :
             continue
-    print(water)
+        print(i,water)
 
 findRain(height)
+
+def findRain2(heght_list):
+    stack=[]
+    for i in range(len(heght_list)):
+        while heght_list[i]:
