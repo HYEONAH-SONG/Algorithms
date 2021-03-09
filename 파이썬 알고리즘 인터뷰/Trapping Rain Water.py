@@ -4,9 +4,18 @@ height = [0,1,0,2,1,0,1,3,2,1,2,1]
 # 0 ~ 11 인덱스 존재
 
 def findRain(heght_list):
-    water = [] # 쌓일 수 있는 물
+    stack = [] # 높이의 변화 체크
+    water =0  # 쌓일 수 있는 물
     for i in range(1,len(heght_list)-1):
-        if water and heght_list[i]
+        if stack and heght_list[i] > stack[-1]:
+            stack.pop()
+            stack.append(heght_list[i])
+        elif not stack :
+            stack.append(heght_list[i])
+        elif stack and heght_list[i] < stack[-1]:
+            water += stack[-1]-heght_list[i]
+        else :
+            continue
+    print(water)
 
-        elif:
 findRain(height)
