@@ -19,8 +19,3 @@ def findRain(heght_list):
         print(i,water)
 
 findRain(height)
-
-def findRain2(heght_list):
-    stack=[]
-    for i in range(len(heght_list)):
-        while heght_list[i]:
