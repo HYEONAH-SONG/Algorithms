@@ -7,4 +7,4 @@ for i in range(len(arr)):
     for j in range(i+1,len(arr)):
         price = arr[j]-arr[i]
         max_price.append(price)
-print(max(max_price))       
+print(max(max_price))
