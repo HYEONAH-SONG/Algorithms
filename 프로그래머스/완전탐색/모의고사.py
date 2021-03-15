@@ -4,9 +4,3 @@
 # 3번 수포자가 찍는 방식: 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, ...
 
 
-num = int(input())
-print(num)
-num2 = int(input())
-print(num2)
-num3 = int(input())
-print(num3)
