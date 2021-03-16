@@ -17,7 +17,7 @@ def dailyTemporatures(T):
     stack =[]
     for index,cur_value in enumerate(T):
         # 현재 온도가 스택 값보다 높다면 정답 처리
-        while stack and cur_value >T[stack[-1]]: # T 이렇게 표시하는게 맞나?
+        while stack and cur_value >T[stack[-1]]:
             last = stack.pop()
             answer[last] = index-last
         stack.append(index)
