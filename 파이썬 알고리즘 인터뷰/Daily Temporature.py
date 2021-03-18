@@ -25,3 +25,6 @@ def dailyTemporatures(T):
     return answer
 
 print(dailyTemporatures(T))
+
+
+
