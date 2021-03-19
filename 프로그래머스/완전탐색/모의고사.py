@@ -8,21 +8,22 @@ def solution(answers):
     student1 =[1,2,3,4,5] #5
     student2 = [2, 1, 2, 3, 2, 4, 2, 5] #8
     student3 =[3, 3, 1, 1, 2, 2, 4, 4, 5, 5] #10
+    array = [0,0,0]
     answer = []
-    count1,count2,count3 = 0,0,0
     for index, value in enumerate(answers):
         if value == student1[index%5]:
-            count1 +=1
+            array[0] +=1
         if value == student2[index%8]:
-            count2 +=1
+            array[1] +=1
         if value == student3[index%10]:
-            count3 +=1
-    dictionary = {1:count1,2:count2, 3:count3}
-    num = max(dictionary.values())
-    for index, value in dictionary.items() :
+            array[2] +=1
+
+    num = max(array)
+    for index, value in enumerate(array) :
         if num == value :
-            answer.append(index)
+            answer.append(index+1)
     return answer
+
 
 answers =[1,3,2,4,2]
 print(solution(answers))
