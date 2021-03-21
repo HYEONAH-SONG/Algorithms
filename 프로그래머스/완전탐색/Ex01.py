@@ -6,3 +6,5 @@ a.appendleft(0)
 print(a)
 a.popleft()
 print(a)
+
+# collections 덱큐
