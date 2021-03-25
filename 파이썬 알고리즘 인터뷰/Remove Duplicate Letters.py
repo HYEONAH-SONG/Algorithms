@@ -21,3 +21,5 @@ def removeDuplicateLetters(s):
     return ''.join(stack)
 
 print(removeDuplicateLetters(str))
+
+# 스택 원리 중요
