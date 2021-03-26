@@ -22,4 +22,3 @@ def removeDuplicateLetters(s):
 
 print(removeDuplicateLetters(str))
 
-# 스택 원리 중요

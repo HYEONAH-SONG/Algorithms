@@ -5,16 +5,9 @@ from collections import deque
 def solution(priorities, location):
     answer = 0
     dq = deque(priorities)
-    while dq:
-        item = dq.popleft()
-        if item > max(dq):
-            dq.append(item)
-        else:
-            answer+=1
-            if item == location
-                break
     return answer
 
 
 priorities = [2, 1, 3, 2]
 location = 2
+print(solution(priorities,location))
