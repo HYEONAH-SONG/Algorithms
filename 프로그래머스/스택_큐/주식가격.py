@@ -9,8 +9,8 @@ def solution(prices):
         while stack and cur_price < prices[stack[-1]]:
             last = stack.pop()
             answer[last]=index-last
-        stack.append(index) # 0,1,3,4
-    # 0,0,1,0,0 ---> 세번째만 자신 보다 가격이 떨어지는 날 존재
+        stack.append(index) # stack 0,1,3,4 ---> 인덱스2가 빠짐
+    # answer 0,0,1,0,0 ---> 세번째만 자신 보다 가격이 떨어지는 날 존재
     while stack:
         second = stack.pop()
         answer[second] = len(prices) - (second+1)

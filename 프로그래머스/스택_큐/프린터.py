@@ -4,17 +4,14 @@
 from collections import deque
 def solution(priorities, location):
     answer = 0 # 내가 인쇄를 요청한 문서가 몇 번째로 인쇄되는지에 대한 횟수
-    dq = deque(priorities)
-    wait =[]
-    for i, value in enumerate(priorities):
-
-        if value < max(priorities):
-            dq.append(value)
+    dq = deque([[v,i] for i,v in enumerate(priorities)])
+    while dq:
+        cur = dq.popleft()
+        if cur[0] < max(dq)[0]:
+            dq.append(cur)
         else:
             answer+=1
-            wait.append(value)
-            print(wait)
-            if i ==location:
+            if cur[1]==location:
                 break
     return answer
 
@@ -22,3 +19,4 @@ def solution(priorities, location):
 priorities = [1, 1, 9, 1, 1, 1]
 location = 0
 print(solution(priorities,location))
+
