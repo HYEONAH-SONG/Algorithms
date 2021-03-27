@@ -3,11 +3,22 @@
 # 3. 그렇지 않으면 J를 인쇄합니다.
 from collections import deque
 def solution(priorities, location):
-    answer = 0
+    answer = 0 # 내가 인쇄를 요청한 문서가 몇 번째로 인쇄되는지에 대한 횟수
     dq = deque(priorities)
+    wait =[]
+    for i, value in enumerate(priorities):
+
+        if value < max(priorities):
+            dq.append(value)
+        else:
+            answer+=1
+            wait.append(value)
+            print(wait)
+            if i ==location:
+                break
     return answer
 
 
-priorities = [2, 1, 3, 2]
-location = 2
+priorities = [1, 1, 9, 1, 1, 1]
+location = 0
 print(solution(priorities,location))

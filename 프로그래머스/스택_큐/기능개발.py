@@ -1,3 +1,5 @@
-# 프로그래머스 팀에서는 기능 개선 작업을 수행 중이다.
-# 각 기능은 진도가 100퍼 일 때 서비스에 반영할 수 있다.
-# 각 기능의 개발 속도는 모두 다르기 때문에 뒤에 있는 기능이 앞에 있는 기능보다 먼저 개발 될수도 있고, 이 때 뒤에 있는 기능은 앞에 있는 기능이 
+def solution(progresses, speeds):
+    answer = []
+    for index,pro in enumerate(progresses):
+        num = (100-pro)//
+    return answer
