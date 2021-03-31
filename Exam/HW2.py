@@ -18,3 +18,4 @@ def linear_equation(first_x,first_y,second_x,second_y):
     return linear
 
 print(linear_equation(first_x,first_y,second_x,second_y))
+#print(linear_equation(first_x,first_y,second_x,sec ond_y))
