@@ -22,3 +22,6 @@ print(linear_equation(first_x,first_y,second_x,second_y))
 #rv = stats.norm(mu,sigma)
 #rv = stats.norm(mu,sigma)
 #rv = stats.norm(mu,sigma)
+##rv = stats.norm(mu,sigma)
+#rv = stats.norm(mu,sigma)
+#
