@@ -38,3 +38,4 @@ print(bfs(N-1,M-1))
 # queue 에 하나씩 꺼내서 4방향 보고
 # 하나씩 본것을 갈 수 있는지 없는지 판별
 # Basic template
+# sorting system
