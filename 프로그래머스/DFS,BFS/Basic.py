@@ -41,3 +41,4 @@ print(bfs(N-1,M-1))
 # sorting system
 # inswall --> 벽인지 판단하는 함수
 # python algorithm
+# python algorithms
