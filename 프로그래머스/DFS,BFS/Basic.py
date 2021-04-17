@@ -37,10 +37,3 @@ print(bfs(N-1,M-1))
 # (0,0) -> queue에 출발점 넣음
 # queue 에 하나씩 꺼내서 4방향 보고
 # 하나씩 본것을 갈 수 있는지 없는지 판별
-# Basic template
-# sorting system
-# inswall --> 벽인지 판단하는 함수
-# python algorithm
-# python algorithms
-# python algorithm
-# python algorithms
