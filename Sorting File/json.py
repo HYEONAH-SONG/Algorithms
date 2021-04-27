@@ -26,3 +26,12 @@ f.close()
 #         fun_list.append(i)
 #         print(i)
 print(fun_list)
+f.close()
+# sen = f.read()
+# sen_list =re.split(r'[}:{]',sen)
+# for index, i in enumerate(sen_list):
+#     if 'func ' in i:
+#         fun_list.append(i)
+#         print(i)
+print(fun_list)
+
