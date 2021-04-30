@@ -2,10 +2,10 @@
 # 같은 색으로 이루어진 구역의 갯수를 구하기
 # 적록색약인 사람과 아닌 사람이 봤을 때 구역의 갯수 구하기
 
-# import sys
+import sys
 from collections import deque
 
-# sys.stdin = open("input.txt")
+sys.stdin = open("input.txt")
 line = int(input())
 matrix = [list(input()) for _ in range(line)]
 visited = [[0 for _ in range(line)] for _ in range(line)]
@@ -46,18 +46,20 @@ for i in range(line):
             bfs(i,j)
             cnt+=1
 print(cnt, end=" ")
-
+#-------------------- 적록 색약 -------------------#
 # 0 ~ line -1
 for i in range(line):
     for j in range(line):
         if matrix[i][j] =='R': # 방문 안한 경우
             matrix[i][j] ='G'
+
 visited = [[0 for _ in range(line)] for _ in range(line)]
+
 cnt = 0
 # 0 ~ line -1
 for i in range(line):
     for j in range(line):
-        if visited[i][j]==0: # 방문 안한 경우
+        if visited[i][j] == 0: # 방문 안한 경우
             bfs(i,j)
             cnt+=1
 print(cnt)
