@@ -10,4 +10,4 @@ for _ in range(case):
 for i in range(case):
     sum = 0
     for j in range(case):
-        if ()
+
