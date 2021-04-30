@@ -1,13 +1,13 @@
 from collections import deque
 import sys
 
-dx = [-1,1,0,0]
+dx = [1,-1,0,0]
 dy = [0,0,-1,1]
 
-n,m = map(int,input().split())
+
 # matrix = [list(map(int,input().split())) for _ in range(n)]
 # print(matrix)
-matrix = [[1, 1, 0], [0, 1, 0], [0, 1, 1]]
+
 def iswall(x,y):
     if x<0 or y<0 :
         return False
@@ -19,6 +19,7 @@ def iswall(x,y):
 
 def bfs(x,y):
     queue = deque()
+    print(queue)
     queue.append((x, y))
     print(queue)
 # queue = deque((x,y)) # 시작 지점을 넣는다.
@@ -27,10 +28,11 @@ def bfs(x,y):
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
-
-            if iswall(nx,ny):
+            if iswall(nx,ny) and matrix[nx][ny]==1:
                 matrix[nx][ny] = matrix[x][y]+1
                 queue.append((nx,ny))
     return matrix[n-1][m-1]
 
+n,m = map(int,input().split())
+matrix = [[1, 1, 0], [0, 1, 0], [0, 1, 1]]
 print(bfs(0,0))
