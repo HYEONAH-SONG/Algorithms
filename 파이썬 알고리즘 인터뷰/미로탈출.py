@@ -4,10 +4,6 @@ import sys
 dx = [1,-1,0,0]
 dy = [0,0,-1,1]
 
-
-# matrix = [list(map(int,input().split())) for _ in range(n)]
-# print(matrix)
-
 def iswall(x,y):
     if x<0 or y<0 :
         return False
