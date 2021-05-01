@@ -34,8 +34,6 @@ def bfs(end_x,end_y):
     queue = deque()
     queue.append((end_x,end_y))
     count = 1
-    #visited = [[0 for _ in range(M)] for _ in range(N)]
-    #visited[end_y][end_x] = 1 # 방문 표시
     matrix[end_x][end_y] = 1 # 방문 표시
     while queue:
          y,x = queue.popleft()

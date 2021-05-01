@@ -8,7 +8,6 @@ while v>0:
         s+="0"
         #print("n<v",n,v)
     else:
-        print("n>=v",n,v)
         s+="1"
         n=n-v
     v=v//2

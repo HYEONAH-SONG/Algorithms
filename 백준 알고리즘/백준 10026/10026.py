@@ -52,7 +52,6 @@ for i in range(line):
     for j in range(line):
         if matrix[i][j] =='R': # 방문 안한 경우
             matrix[i][j] ='G'
-
 visited = [[0 for _ in range(line)] for _ in range(line)]
 
 cnt = 0
