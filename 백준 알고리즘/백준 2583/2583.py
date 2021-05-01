@@ -1,7 +1,7 @@
 # matrix 생성 --> 직사각형에 포함된 경우에는 1 표시
 from collections import deque
-# import sys
-# sys.stdin = open("input.txt")
+import sys
+sys.stdin = open("input.txt")
 
 list_count = [] # 분리된 곳의 각각의 count
 global count #  0이 연속해서 있는 경우 사각형의 갯수
@@ -36,7 +36,7 @@ def bfs(end_x,end_y):
     count = 1
     #visited = [[0 for _ in range(M)] for _ in range(N)]
     #visited[end_y][end_x] = 1 # 방문 표시
-    matrix[end_x][end_y] = 1
+    matrix[end_x][end_y] = 1 # 방문 표시
     while queue:
          y,x = queue.popleft()
          for i in range(4):
