@@ -1,9 +1,12 @@
+# key point : 방향 정하는 방법 (수직, 90도 돌기 등)
+# 시간 복잡도를 먼저 생각을 해보자
+# 재귀함수를 익숙해지자
 import sys
 from collections import deque
 
 sys.stdin = open("input.txt")
 
-# 상 하 우 좌
+# 우 하 좌 상
 dx = [0, 1, 0, -1]
 dy = [1, 0, -1, 0]
 
@@ -15,15 +18,15 @@ def iswall(nx,ny): # 벽이 되는 조건
     return True
 
 def solution(cnt,cctv_list,ans):
-
-    if cnt == cctv_n: # 모든 CCTV 탐색했다면 사각지대 개수 세주기
+    if cnt == len(cctv_list): # 모든 CCTV 탐색했다면 사각지대 개수 세주기
         count = 0
-        for i in range(N):
+        for i in range(N): #  사각지대 아닌  곳을 빼기
             for j in range(M):
-                if matrix[i][j] ==0 and visited[i][j] == 0:
+                if matrix[i][j] == 0 and visited[i][j] == 0:
                     count += 1
         return count
 
+    q = deque()
     x, y, c = cctv_list[cnt][0], cctv_list[cnt][1], cctv_list[cnt][2]
     for k in range(4): # CCTV 의 4방향 확인
         new_dir = []
@@ -44,19 +47,18 @@ def solution(cnt,cctv_list,ans):
             new_dir.append((k + 3) % 4)
             new_dir.append((k + 1) % 4)
             new_dir.append((k + 2) % 4)
-
-        q = deque()
         for d in new_dir: # CCTV 방향 개수 만큼 이동
             nx, ny = x + dx[d], y + dy[d]
             while iswall(nx,ny): # 특정 방향으로 끝까지 이동
-                if not visited[nx][ny] and matrix[nx][ny] != 6: # 방문하지 않았으며 벽이 아니면
-                    visited[nx][ny] = 1# 방문
+                if not visited[nx][ny] and matrix[nx][ny] != 6: # 방문하지 x  벽 x
+                    visited[nx][ny] = 1 # 방문
                     q.append((nx, ny))
                 elif matrix[nx][ny] == 6: break # 벽이면 중단
-                nx += dx[d]
+                nx += dx[d] # 동일 방향으로 계속 진행
                 ny += dy[d]
         # 다음 CCTV 호출
-        ans = min(ans, solution(cnt + 1,cctv_list,ans ))
+        ans = min(ans, solution(cnt + 1,cctv_list,ans))
+
         # 방문했던 곳 되돌려주기
         while q:
             qx, qy = q.popleft()
@@ -68,9 +70,8 @@ def solution(cnt,cctv_list,ans):
 
 N,M = map(int,input().split()) # N: row 수 / M: col 수
 matrix = [list(map(int,input().split())) for _ in range(N)]
-visited = [[0 for _ in range(M)] for _ in range(N)]# 방문 여부 확인
+visited = [[0 for _ in range(M)] for _ in range(N)] # 방문 여부 확인
 cctv_list = [] # CCTV 좌표 리스트
-cctv_n = 0 # 전체 CCTV 개수
 ans = 0 # 사각지대
 
 for i in range(N):
@@ -78,7 +79,7 @@ for i in range(N):
         if 0 < matrix[i][j] < 6: # CCTV 발견하는 경우
             cctv_list.append((i, j,matrix[i][j]))
             visited[i][j] = True
-            cctv_n += 1
         if matrix[i][j]== 0: # 사각지대 count --> MAX
             ans += 1
 print(solution(0,cctv_list,ans))
+
