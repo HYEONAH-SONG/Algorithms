@@ -8,6 +8,7 @@
 # 2 4 5
 # 3 4 6
 
+
 # output
 # 0
 # 2
@@ -41,7 +42,7 @@ while heap:
     dis,location = heapq.heappop(heap)
     for arrive, cost in data[location]:
         candidate = dis + cost
-        if candidate<distance[arrive]:
+        if candidate<distance[arrive]: # 더 작은 경우 갱신
             distance[arrive]=candidate
             heapq.heappush(heap,(distance[arrive],arrive))
 
