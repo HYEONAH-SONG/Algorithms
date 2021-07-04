@@ -7,19 +7,39 @@
 # 바로 앞 번호의 학생이나 바로 뒷 번호의 학생에게만 체육복을 빌려줄 수 있음
 # 최대한 많은 학생이 체육복 소지해야함
 
+# def solution(n, lost, reserve):
+#     reserve_set = set(reserve).difference(set(lost))
+#     lost_set = set(lost).difference(set(reserve))
+#     # reserve에서 이전의 인덱스부터 확인해야한다
+#     for i in reserve_set:
+#         if i-1 in lost_set :
+#             lost_set.remove(i-1)
+#         elif i+1 in lost_set:
+#             lost_set.remove(i+1)
+#     answer = n - len(lost_set)
+#     return answer
+
 def solution(n, lost, reserve):
-    reserve_set = set(reserve).difference(set(lost))
-    lost_set = set(lost).difference(set(reserve))
-    # reserve에서 이전의 인덱스부터 확인해야한다
-    for i in reserve_set:
-        if i-1 in lost_set :
-            lost_set.remove(i-1)
-        elif i+1 in lost_set:
-            lost_set.remove(i+1)
-    answer = n - len(lost_set)
-    return answer
+    student = [1 for _ in range(n+2)]
+    cnt = 0
+    for i in lost:
+        student[i]-=1
+    for i in reserve:
+        student[i]+=1
+    # print(student)
+    for index in range(1,n+1):
+        if student[index] == 0 and student[index+1]==2:
+            student[index],student[index+1]=1,1
+        elif student[index] == 0 and student[index-1]==2:
+            student[index],student[index-1]=1,1
+        # print(student)
+        # print(index,student[index])
+    for i in student[1:n+1]:
+        if i != 0 :
+            cnt +=1
+    return cnt
 
 n = 5
-lost = [5]
-reserve = [5]
+lost = [2, 4]
+reserve = [1, 3, 5]
 print(solution(n,lost,reserve))
