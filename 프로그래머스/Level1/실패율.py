@@ -4,15 +4,18 @@
 
 def solution(N, stages):
     stage_dict = {}
+    stage_dict2 = {}
     people = len(stages) # 총 사람의 수
+    for i in stages:
+        stage_dict[i] = stage_dict.get(i,0) +1
     for i in range(1,N+1): # 1 ~ N
         if people != 0 :
-            c = stages.count(i)
-            stage_dict[i] = c/people
-            people -= c
+            temp = stage_dict.get(i,0)
+            stage_dict2[i] = temp/people
+            people -= temp
         else:
-            stage_dict[i] = 0
-    answer = sorted(stage_dict,key=lambda x:stage_dict[x],reverse=True)
+            stage_dict2[i] = 0
+    answer = sorted(stage_dict2,key=lambda x:stage_dict2[x],reverse=True)
     return answer
 N = 5
 stages = [2, 1, 2, 6, 2, 4, 3, 3]
