@@ -11,11 +11,6 @@ def four(r1, c1, r2, r3):
 
 
 
-def solution(rows, columns,swipes):
-    array = [[1,2,3],[4,5,6],[7,8,9],[10,11,12]]
-    for i in swipes:
-        if i[0] == 1:
-            one(r1, c1, r2, r3)
 
 
 rows, columns = 4,3

@@ -4,7 +4,7 @@ import sys
 sys.stdin = open("input.txt")
 
 for _ in range(10):
-    num = int(input()) # test case number
+    num = int(input()) # 2021 카카오페이 인턴 case number
     total = [] # 대각선, 가로, 세로의 합을 저장하는 리스트
     array = [] # 전체 행렬을 저장하는 리스트
 
