@@ -18,12 +18,6 @@ def solution(line1, line2):
                     stack+=line1[j]
                 elif stack == line2 and len(stack)==len(line2):
                     count +=1
-                    stack = []
-                    continue
-                else:
-                    stack = []
-                    continue
-
 
     print(stack.count(line2))
     print(stack)
