@@ -1,6 +1,5 @@
 # 1부터 45까지의 숫자 중 6개를 찍어서 맞히는 복권
 
-
 def solution(lottos, win_nums):
     answer = []
     rank = [6,6,5,4,3,2,1]
