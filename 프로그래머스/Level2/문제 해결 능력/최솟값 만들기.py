@@ -10,3 +10,6 @@ def solution(A,B):
     return m_sum
 A, B =[1, 4, 2],[5, 4, 4]
 print(solution(A,B))
+
+# bfs : visited를 활용하기(2차원)
+# 벽돌 뿌수기 1회 기능 제공

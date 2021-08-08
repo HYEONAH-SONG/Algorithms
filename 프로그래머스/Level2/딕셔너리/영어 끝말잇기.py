@@ -8,7 +8,7 @@ def solution(n, words):
         if word in check : # 이전에 등장했던 단어인 경우
             return [division[(count+1)%n], count//n+1]
         elif stack and word[0] != stack.pop(): # 이전 단어의 끝과 현재 단어의 앞이 다른 경우
-            return [division[(count+1)%n], count //n+1]
+            return [division[(count+1)%n], count//n+1]
         else: # 그 외 진행이 잘 되는 경우
             stack.append(word[-1])
             check[word] = 1
